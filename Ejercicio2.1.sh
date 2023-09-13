@@ -2,12 +2,12 @@
 name=$1
 path=$2
 
-id=$( pgrep $1 )
-for line in $id;
+id=$( pidof -s "$1" )
+echo $id
+while true;
 do
-	if [ $( ps -p $line -o stat= ) != "R" ]; then
+	if  [ $( ps -p $id -o stat= ) != "R" ]; then
 		$path
-	else
-		echo "Running"
 	fi
 done
+
