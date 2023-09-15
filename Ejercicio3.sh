@@ -12,10 +12,11 @@ do
 	n=$(( n+1))
 done
 
-#set title "%CPU"
 
-gnuplot --persist -e 'plot "log.txt" u 3:1'
+gnuplot --persist -e ' set title "Grafico %Mem"; set output "%Mem.png" ; set xlabel "tiempo (s)"; set ylabel "Porcentaje %" ; plot "log.txt" u 3:2 title "%Mem" '
 
-gnuplot --persist -e 'plot "log.txt" u 2:1'
+
+gnuplot --persist -e ' set title "Grafico %CPU"; set output "%CPU.png" ; set xlabel "tiempo (s)"; set ylabel "Porcentaje %" ; plot "log.txt" u 3:1 title "%CPU" '
+
 
 
