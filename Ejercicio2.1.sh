@@ -2,12 +2,23 @@
 name=$1
 path=$2
 
-id=$( pidof -s "$1" )
+ 
+if pidof -s "$1"; then
+	id=$( pidof -s "$1" )
+else
+	$path
+	id=$( pidof -s "$1" )
+fi
 echo $id
-while true;
-do
-	if  [ $( ps -p $id -o stat= ) != "R" ]; then
-		$path
-	fi
-done
+echo $( ps -q $id -o state --no-headers )
+if  [ "$( ps -q $id -o state --no-headers )" != "R" ]; then
+               $path
+fi
+
+#while true;
+#do
+#	if  [ "$( ps -q $id -o state --no-headers )" != "R" ]; then
+#		$path
+#	fi
+#done
 
