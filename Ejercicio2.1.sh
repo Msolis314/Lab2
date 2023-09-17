@@ -2,16 +2,22 @@
 name=$1
 path=$2
 
-id=$( pgrep $1 )
+
+ 
+if pidof -s "$1"; then
+	id=$( pidof -s "$1" )
+else
+	$path
+	id=$( pidof -s "$1" )
+fi
+
+
 while true;
 do
-	for line in $id;
-	do
-       		 if [ $( ps -p $line -o stat= ) != "R" ]; then
-			 $path
-		 else
-			 echo "Running"
-		 fi
-	 done
+	if  [ "$( ps -q $id -o state --no-headers )" != "R" ]; then
+		$path
+		id=$( pidof -s "$1" )
+		
+	fi
 done
 
