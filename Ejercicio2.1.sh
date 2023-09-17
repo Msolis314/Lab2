@@ -16,6 +16,7 @@ do
 	if  [ "$( ps -q $id -o state --no-headers )" != "R" ]; then
 		$path
 		id=$( pidof -s "$1" )
+		
 	fi
 done
 
