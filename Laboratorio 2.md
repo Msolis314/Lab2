@@ -14,9 +14,10 @@ echo "Path del ejecutable: $( ps -p $1 -o command= )"
 ```
 ### I.I Resultados
 Para probar el *script* se crea un proceso `sleep 4000` y su id se incerta por parámetro. Como se denota a continuación se imprime correctamente lo solicitado en el ejercicio: 
-![[Pasted image 20230914205507.png]]
 
-## II Ejercicio 2
+![alt image](https://github.com/Msolis314/Clases/blob/Msolis314-patch-1/Pasted%20image%2020230914205507.png)
+
+## II Ejercicio 
 En este problema se recibe un nombre y un path de un proceso con el fin del mantenerlo activo con el script. Primero, revisa si el proceso está corriendo mediante un `if` y `pidof` si logra obtener un id el `if` lo valora como *true* y establece la variable id; si no, ejecuta el proceso y obtiene su id.
 ```bash
 #!/bin/bash
@@ -71,10 +72,12 @@ gnuplot --persist -e ' set title "Grafico %CPU"; set output "%CPU.png" ; set xla
 ```
 ### III.I Resultados
 Ingresando el siguiente comando en la terminal `./Ejercicio3.sh "ping -c 20 www.google.com"` para tener un proceso para monitorear como se evidencia en la siguiente imagen.
-![[Lab2.3.1.png]]
+
+![Resultados](https://github.com/Msolis314/Clases/blob/main/Lab2.3.1.png)
+
 Se obtienen los siguientes gráficos para el %cpu y  el %mem. 
-![[Pasted image 20230914200922.png]]
-![[Pasted image 20230914201129.png]]
+![CPU](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914200922.png)
+![MEM](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914201129.png)
 ## IV Ejercicio 4
 Por último, en esta parte del laboratorio se buscaba crear un servicio de monitoreo para un directorio. La primera parte del ejercicio se realizó creando un script que utilizara `inotifywait` para registrar la fecha de las modificaciones en un archivo llamado `log2.txt`.
 ```bash
@@ -98,7 +101,8 @@ A continuación, se agrega una línea al archivo *log2.txt*  con la fecha y hor
 La segunda parte del problema consiste en crear un servicio. Para ello se debe ir al directorio `/etc/systemd/system` y crear un archivo en este caso nombrado `ejercicio4.service`
 
 En dicho archivo se especifica la configuración del servicio como se denota en la imagen:
-![[Pasted image 20230914202831.png]]
+
+![Service](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914202831.png)
 Siendo en `[Unit]`:
 - Description: Una descripción de la funcionalidad del servicio.
 - After: Indica cuando debe de iniciar el servicio, en este caso no es necesario pero se le especifica que sea después de haberse iniciado la red.
@@ -114,13 +118,16 @@ sudo systemctl start ejercicio4
 ```
 ### IV.I Resultados
 Ahora, si se corre el comando de `sudo systemctl status ejercicio4` se obtiene:
-![[Pasted image 20230914204540.png]]
+![alt image](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914204540.png)
 Por tanto, el servicio ha sido creado y activado exitosamente en el sistema. 
 Si se modifica el directorio Prueba a las 8:48 como se evidencia en las siguientes imágenes.
-![[Pasted image 20230914204817.png]]
-![[Pasted image 20230914204848.png]]
+![alt image](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914204817.png)
+![alt image](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914204848.png)
+
 El archivo *log2.txt* registra lo siguiente:
-![[Pasted image 20230914204952.png]]
+
+![alt image](https://github.com/Msolis314/Clases/blob/main/Pasted%20image%2020230914204952.png)
+
 Por tanto, se ha logrado el objetivo del servicio. 
 ## V Git Hub
 [Link Github](https://github.com/Msolis314/Lab2)
