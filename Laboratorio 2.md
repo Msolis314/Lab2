@@ -18,7 +18,7 @@ Para probar el *script* se crea un proceso `sleep 4000` y su id se incerta por p
 ![alt image](https://github.com/Msolis314/Clases/blob/Msolis314-patch-1/Pasted%20image%2020230914205507.png)
 
 ## II Ejercicio 
-En este problema se recibe un nombre y un path de un proceso con el fin del mantenerlo activo con el script. Primero, revisa si el proceso está corriendo mediante un `if` y `pidof` si logra obtener un id el `if` lo valora como *true* y establece la variable id; si no, ejecuta el proceso y obtiene su id.
+En este problema se recibe un nombre y un path de un proceso con el fin del mantenerlo activo con el script. Primero, revisa si el proceso está corriendo mediante un `if` y `pidof` si logra obtener un id el `if` lo valora como *true* y establece la variable id; si no, ejecuta el proceso y obtiene su id.Notar que se utilizó `pidof -s` para obtener con el nombre del proceso el id de su uso más reciente.
 ```bash
 #!/bin/bash
 name=$1
@@ -130,4 +130,4 @@ El archivo *log2.txt* registra lo siguiente:
 
 Por tanto, se ha logrado el objetivo del servicio. 
 ## V Git Hub
-[Link Github](https://github.com/Msolis314/Lab2)
+https://github.com/Msolis314/Lab2
